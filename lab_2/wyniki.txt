@@ -2,177 +2,176 @@ DEBUG:
 
 fork:
 
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.004431
-czas zegarowy    = 0.085500
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.002018
-czas zegarowy    = 0.086610
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.000313
-czas zegarowy    = 0.088717
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.000476
-czas zegarowy    = 0.088887
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.001256
-czas zegarowy    = 0.088761
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.003366
-czas zegarowy    = 0.089390
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.000830
-czas zegarowy    = 0.088942
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.002531
-czas zegarowy    = 0.086971
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.001534
-czas zegarowy    = 0.087442
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.003716
-czas zegarowy    = 0.086777
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./fork
+czas standardowy = 0.055506
+czas CPU         = 0.000000
+czas zegarowy    = 0.100675
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./fork
+czas standardowy = 0.054177
+czas CPU         = 0.000000
+czas zegarowy    = 0.098255
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./fork
+czas standardowy = 0.052295
+czas CPU         = 0.000000
+czas zegarowy    = 0.092753
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./fork
+czas standardowy = 0.050593
+czas CPU         = 0.012186
+czas zegarowy    = 0.090238
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./fork
+czas standardowy = 0.051132
+czas CPU         = 0.000000
+czas zegarowy    = 0.092261
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./fork
+czas standardowy = 0.051979
+czas CPU         = 0.000000
+czas zegarowy    = 0.092289
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./fork
+czas standardowy = 0.053864
+czas CPU         = 0.000000
+czas zegarowy    = 0.094614
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./fork
+czas standardowy = 0.052229
+czas CPU         = 0.000000
+czas zegarowy    = 0.092408
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./fork
+czas standardowy = 0.051676
+czas CPU         = 0.000000
+czas zegarowy    = 0.096040
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./fork
+czas standardowy = 0.051617
+czas CPU         = 0.000000
+czas zegarowy    = 0.091732
 
 clone:
 
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.004431
-czas zegarowy    = 0.085500
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.002018
-czas zegarowy    = 0.086610
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.000313
-czas zegarowy    = 0.088717
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.000476
-czas zegarowy    = 0.088887
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.001256
-czas zegarowy    = 0.088761
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.003366
-czas zegarowy    = 0.089390
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.000830
-czas zegarowy    = 0.088942
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.002531
-czas zegarowy    = 0.086971
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.001534
-czas zegarowy    = 0.087442
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.003716
-czas zegarowy    = 0.086777
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./clone
+czas standardowy = 0.037192
+czas CPU         = 0.000000
+czas zegarowy    = 0.043478
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./clone
+czas standardowy = 0.036829
+czas CPU         = 0.000000
+czas zegarowy    = 0.042971
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./clone
+czas standardowy = 0.036871
+czas CPU         = 0.000000
+czas zegarowy    = 0.043171
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./clone
+czas standardowy = 0.039968
+czas CPU         = 0.000000
+czas zegarowy    = 0.047041
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./clone
+czas standardowy = 0.040531
+czas CPU         = 0.000000
+czas zegarowy    = 0.047191
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./clone
+czas standardowy = 0.037025
+czas CPU         = 0.000000
+czas zegarowy    = 0.043084
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./clone
+czas standardowy = 0.037744
+czas CPU         = 0.000000
+czas zegarowy    = 0.043643
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./clone
+czas standardowy = 0.036768
+czas CPU         = 0.000000
+czas zegarowy    = 0.042873
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./clone
+czas standardowy = 0.036785
+czas CPU         = 0.000000
+czas zegarowy    = 0.043169
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./clone
+czas standardowy = 0.037359
+czas CPU         = 0.014489
+czas zegarowy    = 0.043288
 
 OPT:
 
 fork:
 
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.004431
-czas zegarowy    = 0.085500
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.002018
-czas zegarowy    = 0.086610
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.000313
-czas zegarowy    = 0.088717
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.000476
-czas zegarowy    = 0.088887
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.001256
-czas zegarowy    = 0.088761
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.003366
-czas zegarowy    = 0.089390
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.000830
-czas zegarowy    = 0.088942
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.002531
-czas zegarowy    = 0.086971
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.001534
-czas zegarowy    = 0.087442
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.003716
-czas zegarowy    = 0.086777
-
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./fork
+czas standardowy = 0.051259
+czas CPU         = 0.000000
+czas zegarowy    = 0.091152
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./fork
+czas standardowy = 0.052193
+czas CPU         = 0.000000
+czas zegarowy    = 0.092745
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./fork
+czas standardowy = 0.052601
+czas CPU         = 0.008245
+czas zegarowy    = 0.095649
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./fork
+czas standardowy = 0.053388
+czas CPU         = 0.000000
+czas zegarowy    = 0.092594
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./fork
+czas standardowy = 0.052125
+czas CPU         = 0.000000
+czas zegarowy    = 0.091712
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./fork
+czas standardowy = 0.052312
+czas CPU         = 0.000000
+czas zegarowy    = 0.091937
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./fork
+czas standardowy = 0.051519
+czas CPU         = 0.000000
+czas zegarowy    = 0.091925
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./fork
+czas standardowy = 0.052802
+czas CPU         = 0.000000
+czas zegarowy    = 0.091808
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./fork
+czas standardowy = 0.054588
+czas CPU         = 0.000000
+czas zegarowy    = 0.097636
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./fork
+czas standardowy = 0.056002
+czas CPU         = 0.000000
+czas zegarowy    = 0.096124
 
 clone:
 
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.004431
-czas zegarowy    = 0.085500
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.002018
-czas zegarowy    = 0.086610
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.000313
-czas zegarowy    = 0.088717
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.000476
-czas zegarowy    = 0.088887
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.001256
-czas zegarowy    = 0.088761
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.003366
-czas zegarowy    = 0.089390
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.000830
-czas zegarowy    = 0.088942
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.002531
-czas zegarowy    = 0.086971
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.001534
-czas zegarowy    = 0.087442
-sh-4.2$ ./fork
-czas standardowy = 0.020000
-czas CPU         = 0.003716
-czas zegarowy    = 0.086777
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./clone
+czas standardowy = 0.042618
+czas CPU         = 0.000000
+czas zegarowy    = 0.049593
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./clone
+czas standardowy = 0.039948
+czas CPU         = 0.000000
+czas zegarowy    = 0.046519
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./clone
+czas standardowy = 0.040961
+czas CPU         = 0.040961
+czas zegarowy    = 0.047586
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./clone
+czas standardowy = 0.039271
+czas CPU         = 0.000000
+czas zegarowy    = 0.045582
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./clone
+czas standardowy = 0.036735
+czas CPU         = 0.011704
+czas zegarowy    = 0.043111
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./clone
+czas standardowy = 0.036958
+czas CPU         = 0.000000
+czas zegarowy    = 0.043111
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./clone
+czas standardowy = 0.037801
+czas CPU         = 0.000000
+czas zegarowy    = 0.043514
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./clone
+czas standardowy = 0.037604
+czas CPU         = 0.000000
+czas zegarowy    = 0.043706
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./clone
+czas standardowy = 0.044595
+czas CPU         = 0.000000
+czas zegarowy    = 0.063774
+floxbiee@DESKTOP-K2EL0UR:/mnt/e/repo/ParallelAndDistributedProcessingPW/lab_2$ ./clone
+czas standardowy = 0.037347
+czas CPU         = 0.000000
+czas zegarowy    = 0.043285
 
 
