@@ -1,0 +1,178 @@
+DEBUG:
+
+fork:
+
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.004431
+czas zegarowy    = 0.085500
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.002018
+czas zegarowy    = 0.086610
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.000313
+czas zegarowy    = 0.088717
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.000476
+czas zegarowy    = 0.088887
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.001256
+czas zegarowy    = 0.088761
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.003366
+czas zegarowy    = 0.089390
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.000830
+czas zegarowy    = 0.088942
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.002531
+czas zegarowy    = 0.086971
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.001534
+czas zegarowy    = 0.087442
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.003716
+czas zegarowy    = 0.086777
+
+clone:
+
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.004431
+czas zegarowy    = 0.085500
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.002018
+czas zegarowy    = 0.086610
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.000313
+czas zegarowy    = 0.088717
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.000476
+czas zegarowy    = 0.088887
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.001256
+czas zegarowy    = 0.088761
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.003366
+czas zegarowy    = 0.089390
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.000830
+czas zegarowy    = 0.088942
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.002531
+czas zegarowy    = 0.086971
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.001534
+czas zegarowy    = 0.087442
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.003716
+czas zegarowy    = 0.086777
+
+OPT:
+
+fork:
+
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.004431
+czas zegarowy    = 0.085500
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.002018
+czas zegarowy    = 0.086610
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.000313
+czas zegarowy    = 0.088717
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.000476
+czas zegarowy    = 0.088887
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.001256
+czas zegarowy    = 0.088761
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.003366
+czas zegarowy    = 0.089390
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.000830
+czas zegarowy    = 0.088942
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.002531
+czas zegarowy    = 0.086971
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.001534
+czas zegarowy    = 0.087442
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.003716
+czas zegarowy    = 0.086777
+
+
+clone:
+
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.004431
+czas zegarowy    = 0.085500
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.002018
+czas zegarowy    = 0.086610
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.000313
+czas zegarowy    = 0.088717
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.000476
+czas zegarowy    = 0.088887
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.001256
+czas zegarowy    = 0.088761
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.003366
+czas zegarowy    = 0.089390
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.000830
+czas zegarowy    = 0.088942
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.002531
+czas zegarowy    = 0.086971
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.001534
+czas zegarowy    = 0.087442
+sh-4.2$ ./fork
+czas standardowy = 0.020000
+czas CPU         = 0.003716
+czas zegarowy    = 0.086777
+
+
