@@ -27,7 +27,7 @@ int funkcja_watku(void *zm)
   printf("Wartosc zmiennej lokalnej %d\n", zmienna_lokalna);
   printf("Wartosc zmiennej globalnej: %d\n", zmienna_globalna);
 
-  execl("./EXEC", "Z5", "Piotr", (char *)0);
+  //execl("./EXEC", "Z5", "Piotr", (char *)0);
 
   return 0;
 }
