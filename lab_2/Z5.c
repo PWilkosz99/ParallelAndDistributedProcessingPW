@@ -23,11 +23,14 @@ int funkcja_watku(void *zm)
     zmienna_lokalna++;
   }
 
+  char s[10];
+  sprintf(s, "%ld", (int)getpid());
+
   printf("W watku:\n");
   printf("Wartosc zmiennej lokalnej %d\n", zmienna_lokalna);
   printf("Wartosc zmiennej globalnej: %d\n", zmienna_globalna);
 
-  execl("./EXEC", "Z5", "Piotr", (char *)0);
+  execl("./EXEC", "Z5", s, (char *)0);
 
   return 0;
 }
@@ -51,10 +54,10 @@ main()
   }
 
   pid = clone(&funkcja_watku, (void *)stos + ROZMIAR_STOSU,
-              CLONE_FS | CLONE_FILES | CLONE_SIGHAND | CLONE_VM, (void*) &zm0); //SPRAWOZDANIE : rozpisac argumenty clone
+              CLONE_FS | CLONE_FILES | CLONE_SIGHAND | CLONE_VM, (void *)&zm0); //SPRAWOZDANIE : rozpisac argumenty clone
 
   pid2 = clone(&funkcja_watku, (void *)stos2 + ROZMIAR_STOSU,
-               CLONE_FS | CLONE_FILES | CLONE_SIGHAND | CLONE_VM, (void*) &zm1);
+               CLONE_FS | CLONE_FILES | CLONE_SIGHAND | CLONE_VM, (void *)&zm1);
 
   waitpid(pid, NULL, __WCLONE);
   waitpid(pid2, NULL, __WCLONE);
