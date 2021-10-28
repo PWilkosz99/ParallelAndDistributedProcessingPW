@@ -1,0 +1,29 @@
+W jakich dwóch trybach mogą funkcjonować wątki Pthreads?
+-> standardowe, odlaczone
+
+Jaka jest różnica między tymi trybami?
+->odlaczone nie mozna join
+
+Kiedy wątek standardowo kończy swoje działanie?
+-> kiedy watek wywołuje w dowolnej procedurze funkcj ̨e pthread_exit lub w momencie
+powrotu z funkcji, której wykonywanie rozpoczał w chwili tworzenia
+
+W jaki sposób można wymusić zakończenie działania wątku? (czym różnią się w tym przypadku wątki odłączone istandardowe?) 
+->	pthread_cancel(tid); / odlaczone kill
+
+Jak wątek może chronić się przed próbą "zabicia"?
+->  pthread_setcancelstate(PTHREAD_CANCEL_DISABLE, NULL);
+
+Jak można sprawdzić czy próba "zabicia" wątku powiodła się? (czym różnią się w tym przypadku wątki odłączone i standardowe
+->  pthread_testcancel();
+
+//2
+
+W jaki sposób można poprawnie przesłać identyfikator do wątku? Jaki może pojawić się błąd synchronizacji w przypadku próby przesłania zwykłego wskaźnika do liczby całkowitej?
+-> przez referencje, bledna wartosc, smieci z stack, typ pthread_t, dostep pthread_self(), getattribute
+
+//3
+
+jaką funkcję należy wywołać w main przed wydrukowaniem zmodyfikowanych wartości zmiennej globalnej?
+-> pthread_join(tid[i], NULL);
+
