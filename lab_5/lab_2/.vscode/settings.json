@@ -1,0 +1,11 @@
+{
+    "makefile.extensionOutputFolder": "./.vscode",
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/home/szymon/programowanie_rownolegle/lab3/1",
+            "binaryPath": "/home/szymon/programowanie_rownolegle/lab3/1/pthreads_detach_kill",
+            "binaryArgs": []
+        }
+    ],
+    "C_Cpp.errorSquiggles": "Disabled"
+}

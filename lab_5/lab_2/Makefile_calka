@@ -1,0 +1,37 @@
+# kompilator c
+CCOMP = gcc
+
+# konsolidator
+LOADER = gcc
+
+# opcje optymalizacji:
+# wersja do debugowania
+#OPT = -g -DDEBUG
+# wersja zoptymalizowana do mierzenia czasu
+OPT = -O3 -fopenmp
+
+# pliki naglowkowe
+INC = -I./include
+
+# biblioteki
+#LIB = -L../pomiar_czasu -lpomiar_czasu -lm -lpthread
+LIB = -L./lib -lpomiar_czasu -lm -lpthread
+
+# zaleznosci i komendy
+
+#all: pthreads_suma pthreads_calka
+all: pthreads_calka
+
+pthreads_suma: pthreads_suma.o 
+	$(LOADER) $(OPT) pthreads_suma.o -o pthreads_suma $(LIB)
+
+pthreads_suma.o: pthreads_suma.c include/pomiar_czasu.h
+	$(CCOMP) -c $(OPT) pthreads_suma.c $(INC) 
+
+pthreads_calka: pthreads_calka.o 
+	$(LOADER) $(OPT) pthreads_calka.o -o pthreads_calka $(LIB)
+
+pthreads_calka.o: pthreads_calka.c include/pomiar_czasu.h
+	$(CCOMP) -c $(OPT) pthreads_calka.c $(INC) 
+clean:
+	rm -f *.o pthreads_calka

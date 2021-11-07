@@ -1,0 +1,55 @@
+{
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "Debug",
+            "command": "/usr/bin/gcc",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "-DDEBUG",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}",
+                "-I../../pomiar_czasu",
+                "-pthread",
+                "-lm",
+                "-L../../pomiar_czasu",
+                " -lpomiar_czasu",
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "detail": "Zadanie wygenerowane przez debuger."
+        },
+        {
+            "type": "cppbuild",
+            "label": "Relase",
+            "command": "/usr/bin/gcc",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-O3",
+                "-fopenmp",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}",
+                "-I../../pomiar_czasu",
+                "-pthread",
+                "-lm",
+                "-L../../pomiar_czasu",
+                " -lpomiar_czasu",
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "detail": "Zadanie wygenerowane przez debuger."
+        }
+    ],
+    "version": "2.0.0"
+}
