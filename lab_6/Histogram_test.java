@@ -85,7 +85,7 @@ class Histogram_test {
 			}
 		}
 
-		obraz_3.print_histogramp();
+		obraz_3.print_histograma();
 		obraz_3.compareResults();
 	}
 

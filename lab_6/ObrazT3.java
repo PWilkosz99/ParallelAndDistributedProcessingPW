@@ -9,7 +9,7 @@ public class ObrazT3 implements Runnable {
 
     @Override
     public void run() {
-        obraz.calculate_histogram(row);
+        obraz.calculate_histogram2(row);
     }
 
 }

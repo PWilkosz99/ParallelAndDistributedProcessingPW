@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.concurrent.atomic.AtomicInteger;
 
 class Obraz {
 
@@ -8,6 +9,7 @@ class Obraz {
 	private char[] tab_symb;
 	private int[] histogram;
 	private int[] hist_parallel;
+	private AtomicInteger[] hist_atomic;
 
 	public Obraz(int n, int m) {
 
@@ -34,20 +36,24 @@ class Obraz {
 		System.out.print("\n\n");
 		histogram = new int[94];
 		hist_parallel = new int[94];
+		hist_atomic = new AtomicInteger[94];
+		for (int i = 0; i < hist_atomic.length; i++) {
+			hist_atomic[i] = new AtomicInteger(0);
+		}
 		clear_histogram();
 	}
 
-	public void compareResults(){
-		boolean error=false;
+	public void compareResults() {
+		boolean error = false;
 		for (int i = 0; i < hist_parallel.length; i++) {
-			if(histogram[i]!=hist_parallel[i]){
-				error=true;
+			if (histogram[i] != hist_parallel[i]) {
+				error = true;
 				break;
 			}
 		}
-		if(error){
+		if (error) {
 			System.out.println("Błąd obliczeń równoległych");
-		}else{
+		} else {
 			System.out.println("Obliczenia prawidłowe");
 		}
 	}
@@ -89,54 +95,56 @@ class Obraz {
 	}
 
 	public void calculate_histogram(int a, int b) { // par - block decomp(chars)
-        for (int c = a; c < b; c++) {
-            for (int i = 0; i < size_n; i++) {
-                for (int j = 0; j < size_m; j++) {
-                    if (tab[i][j] == tab_symb[c])
-                        hist_parallel[c]++;
-                }
-            }
-        }
-    }
+		for (int c = a; c < b; c++) {
+			for (int i = 0; i < size_n; i++) {
+				for (int j = 0; j < size_m; j++) {
+					if (tab[i][j] == tab_symb[c])
+						hist_parallel[c]++;
+				}
+			}
+		}
+	}
 
-    public void calculate_histogra2(int r) { // par - block decomp(row)
-        for (int j = 0; j < size_m; j++) {
-            for (int k = 0; k < 94; k++) {
-                if (tab[r][j] == tab_symb[k])
-                    hist_parallel[k]++;
-            }
-        }
-    }
+	public void calculate_histogram2(int r) { // par - block decomp(row)
+		for (int j = 0; j < size_m; j++) {
+			for (int k = 0; k < 94; k++) {
+				if (tab[r][j] == tab_symb[k]) {
+					hist_atomic[k].incrementAndGet();
+				}
+			}
+		}
+	}
 
 	public void print_histogram() {
 		for (int i = 0; i < 94; i++) {
-			System.out.print("T"+Thread.currentThread().getId()+" "+tab_symb[i] + " " + histogram[i] + "\n");
+			System.out.print("T" + Thread.currentThread().getId() + " " + tab_symb[i] + " " + histogram[i] + "\n");
 			// System.out.print((char)(i+33)+" "+histogram[i]+"\n");
 		}
 	}
 
 	public synchronized void print_histogram(int c) {
-		System.out.print("T"+Thread.currentThread().getId()+" "+tab_symb[c] + " : ");
+		System.out.print("T" + Thread.currentThread().getId() + " " + tab_symb[c] + " : ");
 		for (int i = 0; i < hist_parallel[c]; i++) {
 			System.out.print("=");
 		}
 		System.out.println();
 	}
 
-	public void print_histogramp() {
-        for (int i = 0; i < 94; i++) {
-            System.out.print("T"+Thread.currentThread().getId()+" "+tab_symb[i] + " " + hist_parallel[i] + "\n");
-            // System.out.print((char)(i+33)+" "+histogram[i]+"\n");
-        }
-    }
+	public void print_histograma() {
+		for (int i = 0; i < 94; i++) {
+			System.out.print(
+					"T" + Thread.currentThread().getId() + " " + tab_symb[i] + " " + hist_atomic[i].get() + "\n");
+			// System.out.print((char)(i+33)+" "+histogram[i]+"\n");
+		}
+	}
 
-    public synchronized void print_histogram(int a, int b) {
-        for (int c = a; c < b; c++) {
-            System.out.print("T"+Thread.currentThread().getId()+" "+tab_symb[c] + " : ");
-            for (int i = 0; i < hist_parallel[c]; i++) {
-                System.out.print("=");
-            }
-            System.out.println();
-        }
-    }
+	public synchronized void print_histogram(int a, int b) {
+		for (int c = a; c < b; c++) {
+			System.out.print("T" + Thread.currentThread().getId() + " " + tab_symb[c] + " : ");
+			for (int i = 0; i < hist_parallel[c]; i++) {
+				System.out.print("=");
+			}
+			System.out.println();
+		}
+	}
 }
