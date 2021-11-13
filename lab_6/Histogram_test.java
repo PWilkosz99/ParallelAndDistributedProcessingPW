@@ -10,8 +10,8 @@ class Histogram_test {
 		int n = scanner.nextInt();
 		int m = scanner.nextInt();
 		Obraz obraz_1 = new Obraz(n, m);
-		Obraz2 obraz_2 = new Obraz2(n, m);
-		Obraz2 obraz_3= new Obraz2(n, m);
+		Obraz obraz_2 = new Obraz(n, m);
+		Obraz obraz_3 = new Obraz(n, m);
 		scanner.close();
 
 		// Sequentially
@@ -36,7 +36,11 @@ class Histogram_test {
 			}
 		}
 
+		obraz_1.compareResults();
+
 		// Variant 2 : implements Runnable - block by char number
+
+		obraz_2.calculate_histogram();
 
 		int p = 10;
 		int nt = (int) Math.ceil((float) diffCharCount / p);
@@ -60,7 +64,12 @@ class Histogram_test {
 			}
 		}
 
+		obraz_2.compareResults();
+
 		// Variant 3 : implements Runnable - block by rows
+
+		obraz_3.calculate_histogram();
+
 		ObrazT3[] obrazT3s = new ObrazT3[n];
 		Thread[] threadContainer2 = new Thread[n];
 
@@ -76,7 +85,8 @@ class Histogram_test {
 			}
 		}
 
-		//obraz_3.print_histogramp();
+		obraz_3.print_histogramp();
+		obraz_3.compareResults();
 	}
 
 }

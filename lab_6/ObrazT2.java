@@ -1,9 +1,9 @@
 public class ObrazT2 implements Runnable {
-    private Obraz2 obraz;
+    private Obraz obraz;
     int a;
     int b;
 
-    ObrazT2(Obraz2 o, int a, int b) {
+    ObrazT2(Obraz o, int a, int b) {
         obraz = o;
         this.a = a;
         this.b = b;

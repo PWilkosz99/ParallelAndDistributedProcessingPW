@@ -75,7 +75,7 @@ class Obraz2 {
         }
     }
 
-    public void calculate_histogram(int r) { // par - block decomp(row)
+    public void calculate_histogra2(int r) { // par - block decomp(row)
         for (int j = 0; j < size_m; j++) {
             for (int k = 0; k < 94; k++) {
                 if (tab[r][j] == tab_symb[k])

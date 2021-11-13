@@ -1,8 +1,8 @@
 public class ObrazT3 implements Runnable {
-    Obraz2 obraz;
+    Obraz obraz;
     int row;
 
-    ObrazT3(Obraz2 o, int r) {
+    ObrazT3(Obraz o, int r) {
         obraz = o;
         row = r;
     }

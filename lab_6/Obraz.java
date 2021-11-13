@@ -37,6 +37,21 @@ class Obraz {
 		clear_histogram();
 	}
 
+	public void compareResults(){
+		boolean error=false;
+		for (int i = 0; i < hist_parallel.length; i++) {
+			if(histogram[i]!=hist_parallel[i]){
+				error=true;
+				break;
+			}
+		}
+		if(error){
+			System.out.println("Błąd obliczeń równoległych");
+		}else{
+			System.out.println("Obliczenia prawidłowe");
+		}
+	}
+
 	public void clear_histogram() {
 		for (int i = 0; i < 94; i++) {
 			histogram[i] = 0;
@@ -73,6 +88,26 @@ class Obraz {
 		}
 	}
 
+	public void calculate_histogram(int a, int b) { // par - block decomp(chars)
+        for (int c = a; c < b; c++) {
+            for (int i = 0; i < size_n; i++) {
+                for (int j = 0; j < size_m; j++) {
+                    if (tab[i][j] == tab_symb[c])
+                        hist_parallel[c]++;
+                }
+            }
+        }
+    }
+
+    public void calculate_histogra2(int r) { // par - block decomp(row)
+        for (int j = 0; j < size_m; j++) {
+            for (int k = 0; k < 94; k++) {
+                if (tab[r][j] == tab_symb[k])
+                    hist_parallel[k]++;
+            }
+        }
+    }
+
 	public void print_histogram() {
 		for (int i = 0; i < 94; i++) {
 			System.out.print("T"+Thread.currentThread().getId()+" "+tab_symb[i] + " " + histogram[i] + "\n");
@@ -87,4 +122,21 @@ class Obraz {
 		}
 		System.out.println();
 	}
+
+	public void print_histogramp() {
+        for (int i = 0; i < 94; i++) {
+            System.out.print("T"+Thread.currentThread().getId()+" "+tab_symb[i] + " " + hist_parallel[i] + "\n");
+            // System.out.print((char)(i+33)+" "+histogram[i]+"\n");
+        }
+    }
+
+    public synchronized void print_histogram(int a, int b) {
+        for (int c = a; c < b; c++) {
+            System.out.print("T"+Thread.currentThread().getId()+" "+tab_symb[c] + " : ");
+            for (int i = 0; i < hist_parallel[c]; i++) {
+                System.out.print("=");
+            }
+            System.out.println();
+        }
+    }
 }
