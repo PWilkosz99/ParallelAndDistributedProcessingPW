@@ -10,7 +10,6 @@ class Histogram_test {
 		int n = scanner.nextInt();
 		int m = scanner.nextInt();
 		Obraz obraz_1 = new Obraz(n, m);
-		Obraz obraz_2 = new Obraz(n, m);
 		scanner.close();
 
 		// Sequentially
@@ -24,7 +23,7 @@ class Histogram_test {
 
 		ObrazT1[] obrazT1s = new ObrazT1[diffCharCount];
 		for (int i = 0; i < obrazT1s.length; i++) {
-			(obrazT1s[i] = new ObrazT1(obraz_2, i)).start();
+			(obrazT1s[i] = new ObrazT1(obraz_1, i)).start();
 		}
 		;
 
@@ -35,7 +34,7 @@ class Histogram_test {
 			}
 		}
 
-		obraz_2.print_histogram();
+		obraz_1.print_histogram();
 
 		// System.out.println("Set number of threads");
 		// int num_threads = scanner.nextInt();
