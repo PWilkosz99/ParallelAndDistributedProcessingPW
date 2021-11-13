@@ -1,4 +1,3 @@
-import java.util.List;
 import java.util.Random;
 
 class Obraz2 {
@@ -79,7 +78,7 @@ class Obraz2 {
     public void calculate_histogram(int r) { // par - block decomp(row)
         for (int j = 0; j < size_m; j++) {
             for (int k = 0; k < 94; k++) {
-                if (tab[r-1][j] == tab_symb[k])
+                if (tab[r][j] == tab_symb[k])
                     hist_parallel[k]++;
             }
         }
@@ -87,21 +86,21 @@ class Obraz2 {
 
     public void print_histogram() {
         for (int i = 0; i < 94; i++) {
-            System.out.print(tab_symb[i] + " " + histogram[i] + "\n");
+            System.out.print("T"+Thread.currentThread().getId()+" "+tab_symb[i] + " " + histogram[i] + "\n");
             // System.out.print((char)(i+33)+" "+histogram[i]+"\n");
         }
     }
 
     public void print_histogramp() {
         for (int i = 0; i < 94; i++) {
-            System.out.print(tab_symb[i] + " " + hist_parallel[i] + "\n");
+            System.out.print("T"+Thread.currentThread().getId()+" "+tab_symb[i] + " " + hist_parallel[i] + "\n");
             // System.out.print((char)(i+33)+" "+histogram[i]+"\n");
         }
     }
 
     public synchronized void print_histogram(int a, int b) {
         for (int c = a; c < b; c++) {
-            System.out.print(tab_symb[c] + " : ");
+            System.out.print("T"+Thread.currentThread().getId()+" "+tab_symb[c] + " : ");
             for (int i = 0; i < hist_parallel[c]; i++) {
                 System.out.print("=");
             }

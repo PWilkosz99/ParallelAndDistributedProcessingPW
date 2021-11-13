@@ -75,13 +75,13 @@ class Obraz {
 
 	public void print_histogram() {
 		for (int i = 0; i < 94; i++) {
-			System.out.print(tab_symb[i] + " " + histogram[i] + "\n");
+			System.out.print("T"+Thread.currentThread().getId()+" "+tab_symb[i] + " " + histogram[i] + "\n");
 			// System.out.print((char)(i+33)+" "+histogram[i]+"\n");
 		}
 	}
 
 	public synchronized void print_histogram(int c) {
-		System.out.print(tab_symb[c] + " : ");
+		System.out.print("T"+Thread.currentThread().getId()+" "+tab_symb[c] + " : ");
 		for (int i = 0; i < hist_parallel[c]; i++) {
 			System.out.print("=");
 		}

@@ -12,7 +12,7 @@ public class ObrazT2 implements Runnable {
     @Override
     public void run() {
         obraz.calculate_histogram(a, b);
-        //obraz.print_histogram(a, b);
+        obraz.print_histogram(a, b);
     }
 
 }
