@@ -10,6 +10,7 @@ class Histogram_test {
 		int n = scanner.nextInt();
 		int m = scanner.nextInt();
 		Obraz obraz_1 = new Obraz(n, m);
+		Obraz2 obraz_2 = new Obraz2(n, m);
 		scanner.close();
 
 		// Sequentially
@@ -30,6 +31,30 @@ class Histogram_test {
 		for (int i = 0; i < obrazT1s.length; i++) {
 			try {
 				obrazT1s[i].join();
+			} catch (InterruptedException e) {
+			}
+		}
+
+		// Variant 2 : implements Runnable
+
+		int p = 10;
+		int nt = (int) Math.ceil((float) diffCharCount / p);
+		int a, b;
+		ObrazT2[] obrazT2s = new ObrazT2[p];
+		Thread[] threadContainer = new Thread[p];
+
+		for (int i = 0; i < obrazT2s.length; i++) {
+			a = nt * i;
+			b = nt * (i + 1);
+			if (b > diffCharCount)
+				b = diffCharCount;
+			threadContainer[i] = (new Thread(new ObrazT2(obraz_2, a, b)));
+			threadContainer[i].start();
+		}
+
+		for (int i = 0; i < obrazT2s.length; i++) {
+			try {
+				threadContainer[i].join();
 			} catch (InterruptedException e) {
 			}
 		}

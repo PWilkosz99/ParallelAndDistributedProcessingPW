@@ -9,6 +9,6 @@ public class ObrazT1 extends Thread {
 
     public void run(){
         obraz.calculate_histogram(charNumber);
-        obraz.print_histogram(charNumber);
+        //obraz.print_histogram(charNumber);
     }
 }
