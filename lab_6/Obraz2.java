@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Random;
 
 class Obraz2 {
@@ -64,7 +65,7 @@ class Obraz2 {
         }
     }
 
-    public void calculate_histogram(int a, int b) {
+    public void calculate_histogram(int a, int b) { // par - block decomp(chars)
         for (int c = a; c < b; c++) {
             for (int i = 0; i < size_n; i++) {
                 for (int j = 0; j < size_m; j++) {
@@ -75,9 +76,25 @@ class Obraz2 {
         }
     }
 
+    public void calculate_histogram(int r) { // par - block decomp(row)
+        for (int j = 0; j < size_m; j++) {
+            for (int k = 0; k < 94; k++) {
+                if (tab[r-1][j] == tab_symb[k])
+                    hist_parallel[k]++;
+            }
+        }
+    }
+
     public void print_histogram() {
         for (int i = 0; i < 94; i++) {
             System.out.print(tab_symb[i] + " " + histogram[i] + "\n");
+            // System.out.print((char)(i+33)+" "+histogram[i]+"\n");
+        }
+    }
+
+    public void print_histogramp() {
+        for (int i = 0; i < 94; i++) {
+            System.out.print(tab_symb[i] + " " + hist_parallel[i] + "\n");
             // System.out.print((char)(i+33)+" "+histogram[i]+"\n");
         }
     }

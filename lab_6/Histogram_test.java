@@ -11,6 +11,7 @@ class Histogram_test {
 		int m = scanner.nextInt();
 		Obraz obraz_1 = new Obraz(n, m);
 		Obraz2 obraz_2 = new Obraz2(n, m);
+		Obraz2 obraz_3= new Obraz2(n, m);
 		scanner.close();
 
 		// Sequentially
@@ -35,7 +36,7 @@ class Histogram_test {
 			}
 		}
 
-		// Variant 2 : implements Runnable
+		// Variant 2 : implements Runnable - block by char number
 
 		int p = 10;
 		int nt = (int) Math.ceil((float) diffCharCount / p);
@@ -59,21 +60,23 @@ class Histogram_test {
 			}
 		}
 
-		// System.out.println("Set number of threads");
-		// int num_threads = scanner.nextInt();
+		// Variant 3 : implements Runnable - block by rows
+		ObrazT3[] obrazT3s = new ObrazT3[n];
+		Thread[] threadContainer2 = new Thread[n];
 
-		// Watek[] NewThr = new Watek[num_threads];
+		for (int i = 0; i < obrazT3s.length; i++) {
+			threadContainer2[i] = (new Thread(new ObrazT3(obraz_3, i)));
+			threadContainer2[i].start();
+		}
 
-		// for (int i = 0; i < num_threads; i++) {
-		// (NewThr[i] = new Watek(...,obraz_1)).start();
-		// }
+		for (int i = 0; i < obrazT3s.length; i++) {
+			try {
+				threadContainer2[i].join();
+			} catch (InterruptedException e) {
+			}
+		}
 
-		// for (int i = 0; i < num_threads; i++) {
-		// try {
-		// NewThr[i].join();
-		// } catch (InterruptedException e) {}
-		// }
-
+		obraz_3.print_histogramp();
 	}
 
 }
