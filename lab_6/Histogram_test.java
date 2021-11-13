@@ -34,8 +34,6 @@ class Histogram_test {
 			}
 		}
 
-		obraz_1.print_histogram();
-
 		// System.out.println("Set number of threads");
 		// int num_threads = scanner.nextInt();
 

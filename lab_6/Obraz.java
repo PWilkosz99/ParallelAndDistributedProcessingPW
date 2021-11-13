@@ -80,4 +80,11 @@ class Obraz {
 		}
 	}
 
+	public synchronized void print_histogram(int c) {
+		System.out.print(tab_symb[c] + " : ");
+		for (int i = 0; i < hist_parallel[c]; i++) {
+			System.out.print("=");
+		}
+		System.out.println();
+	}
 }
