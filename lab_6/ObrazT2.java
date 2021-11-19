@@ -14,5 +14,4 @@ public class ObrazT2 implements Runnable {
         obraz.calculate_histogram(a, b);
         obraz.print_histogram(a, b);
     }
-
 }
