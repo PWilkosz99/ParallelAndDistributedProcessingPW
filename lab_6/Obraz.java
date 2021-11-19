@@ -10,6 +10,7 @@ class Obraz {
 	private int[] histogram;
 	private int[] hist_parallel;
 	private int[][] tTab;
+	private int[][] bTab;
 
 	public Obraz(int n, int m) {
 
@@ -43,9 +44,13 @@ class Obraz {
 		clear_histogram();
 	}
 
-	// public Obraz(int n, int m, int p) {
-	// 	this(n, m);
-	// }
+	public Obraz(int n, int m, int ids) {
+		this(n, m);
+		tTab=new int[ids][];
+		for (int i = 0; i < ids; i++) {
+			tTab[i] = new int[94];
+		}
+	}
 
 	public void compareResults() {
 		boolean error = false;
@@ -119,9 +124,27 @@ class Obraz {
 		}
 	}
 
+	public void calculate_histogram_squere(int r, int c, int re, int ce, int id) {
+		for (int rw = r; rw < re; rw++) {
+			for (int cl = c; cl < ce; cl++) {
+				for (int i = 0; i < 94; i++) {
+					if (tab[rw][cl] == tab_symb[i]) {
+						bTab[id][i]++;
+					}
+				}
+			}
+		}
+	}
+
 	public synchronized void syncArrays(int r){
 		for (int i = 0; i < 94; i++) {
 			hist_parallel[i]+=tTab[r][i];
+		}
+	}
+
+	public synchronized void syncArrays2(int id){
+		for (int i = 0; i < 94; i++) {
+			hist_parallel[i]+=bTab[id][i];
 		}
 	}
 
