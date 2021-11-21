@@ -11,35 +11,36 @@ class Obraz {
 	private int[] hist_parallel;
 	private int[][] tTab;
 	private int[][] bTab;
+	public static int charCount = 10;
 
 	public Obraz(int n, int m) {
 
 		this.size_n = n;
 		this.size_m = m;
 		tab = new char[n][m];
-		tab_symb = new char[94];
+		tab_symb = new char[charCount];
 
 		final Random random = new Random();
 
 		// for general case where symbols could be not just integers
-		for (int k = 0; k < 94; k++) {
+		for (int k = 0; k < charCount; k++) {
 			tab_symb[k] = (char) (k + 33); // substitute symbols
 		}
 
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < m; j++) {
-				tab[i][j] = tab_symb[random.nextInt(94)]; // ascii 33-127
-				// tab[i][j] = (char)(random.nextInt(94)+33); // ascii 33-127
+				tab[i][j] = tab_symb[random.nextInt(charCount)]; // ascii 33-127
+				// tab[i][j] = (char)(random.nextInt(charCount)+33); // ascii 33-127
 				System.out.print(tab[i][j] + " ");
 			}
 			System.out.print("\n");
 		}
 		System.out.print("\n\n");
-		histogram = new int[94];
-		hist_parallel = new int[94];
+		histogram = new int[charCount];
+		hist_parallel = new int[charCount];
 		tTab=new int[size_n][];
 		for (int i = 0; i < n; i++) {
-			tTab[i] = new int[94];
+			tTab[i] = new int[charCount];
 		}
 		clear_histogram();
 	}
@@ -48,7 +49,7 @@ class Obraz {
 		this(n, m);
 		tTab=new int[ids][];
 		for (int i = 0; i < ids; i++) {
-			tTab[i] = new int[94];
+			tTab[i] = new int[charCount];
 		}
 	}
 
@@ -68,7 +69,7 @@ class Obraz {
 	}
 
 	public void clear_histogram() {
-		for (int i = 0; i < 94; i++) {
+		for (int i = 0; i < charCount; i++) {
 			histogram[i] = 0;
 			hist_parallel[i] = 0;
 		}
@@ -85,7 +86,7 @@ class Obraz {
 				// wersja bardziej ogĂłlna dla tablicy symboli nie utoĹźsamianych z indeksami
 				// tylko dla tej wersji sensowne jest zrĂłwnoleglenie w dziedzinie zbioru
 				// znakĂłw ASCII
-				for (int k = 0; k < 94; k++) {
+				for (int k = 0; k < charCount; k++) {
 					if (tab[i][j] == tab_symb[k])
 						histogram[k]++;
 					// if(tab[i][j] == (char)(k+33)) histogram[k]++;
@@ -116,7 +117,7 @@ class Obraz {
 
 	public void calculate_histogram2(int r) { // par - block decomp(row)
 		for (int j = 0; j < size_m; j++) {
-			for (int k = 0; k < 94; k++) {
+			for (int k = 0; k < charCount; k++) {
 				if (tab[r][j] == tab_symb[k]) {
 					tTab[r][k]++;
 				}
@@ -127,7 +128,7 @@ class Obraz {
 	public void calculate_histogram_squere(int r, int c, int re, int ce, int id) {
 		for (int rw = r; rw < re; rw++) {
 			for (int cl = c; cl < ce; cl++) {
-				for (int i = 0; i < 94; i++) {
+				for (int i = 0; i < charCount; i++) {
 					if (tab[rw][cl] == tab_symb[i]) {
 						bTab[id][i]++;
 					}
@@ -137,25 +138,25 @@ class Obraz {
 	}
 
 	public synchronized void syncArrays(int r){
-		for (int i = 0; i < 94; i++) {
+		for (int i = 0; i < charCount; i++) {
 			hist_parallel[i]+=tTab[r][i];
 		}
 	}
 
 	public synchronized void syncArrays2(int id){
-		for (int i = 0; i < 94; i++) {
+		for (int i = 0; i < charCount; i++) {
 			hist_parallel[i]+=bTab[id][i];
 		}
 	}
 
 	public void print_histogram() {
-		for (int i = 0; i < 94; i++) {
+		for (int i = 0; i < charCount; i++) {
 			System.out.print("T" + Thread.currentThread().getId() + " " + tab_symb[i] + " " + histogram[i] + "\n");
 		}
 	}
 
 	public void print_histogramp() {
-		for (int i = 0; i < 94; i++) {
+		for (int i = 0; i < charCount; i++) {
 			System.out.print("T" + Thread.currentThread().getId() + " " + tab_symb[i] + " " + hist_parallel[i] + "\n");
 		}
 	}
