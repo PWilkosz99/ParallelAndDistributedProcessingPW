@@ -13,9 +13,9 @@ public class Calka_callable implements Callable<Double>{
 		this.xk = xk;
 		this.N = (int) Math.ceil((xk-xp)/dx);
 		this.dx = (xk-xp)/N;
-		System.out.println("Creating an instance of Calka_callable");
-		System.out.println("xp = " + xp + ", xk = " + xk + ", N = " + N);
-		System.out.println("dx requested = " + dx + ", dx final = " + this.dx);
+		// System.out.println("Creating an instance of Calka_callable");
+		// System.out.println("xp = " + xp + ", xk = " + xk + ", N = " + N);
+		// System.out.println("dx requested = " + dx + ", dx final = " + this.dx);
 
 	}
 
@@ -37,7 +37,7 @@ public class Calka_callable implements Callable<Double>{
 	@Override
 	public Double call() throws Exception {
 	    double calka = compute();
-		System.out.println("Calka czastkowa: " + calka);
+		// System.out.println("Calka czastkowa: " + calka);
 		return calka;
 	}
 
