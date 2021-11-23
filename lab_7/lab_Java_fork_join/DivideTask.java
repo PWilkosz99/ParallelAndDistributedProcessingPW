@@ -10,24 +10,32 @@ class DivideTask extends RecursiveTask<int[]> {
     }
 
     protected int[] compute() {
-  
-        // MergeSort
 
-        // .......
-        int arrSize = arrayToDivide.length;
-        int arrHalf = arrSize/2;
-   
-        DivideTask task1 = new DivideTask(Arrays.copyOfRange(arrayToDivide, 0, arrHalf));
-        DivideTask task2 = new DivideTask(Arrays.copyOfRange(arrayToDivide, arrHalf+1, arrSize));
-  
-        // .......
-  
-        //Wait for results from both tasks
-        int[] tab1 = task1.join();
-        int[] tab2 = task2.join();
-   
-        return scal_tab(tab1, tab2, scal_tab);
-  
+        // MergeSort
+        if (arrayToDivide.length > 1) {
+
+            // .......
+            int arrSize = arrayToDivide.length;
+            int arrHalf = arrSize / 2;
+
+            int[] a1 = Arrays.copyOfRange(arrayToDivide, 0, arrHalf);
+            int[] a2 = Arrays.copyOfRange(arrayToDivide, arrHalf, arrSize);
+
+            DivideTask task1 = new DivideTask(a1);
+            DivideTask task2 = new DivideTask(a2);
+
+            // .......
+
+            task1.fork();
+            task2.fork();
+
+            // Wait for results from both tasks
+            int[] tab1 = task1.join();
+            int[] tab2 = task2.join();
+
+            scal_tab(tab1, tab2, arrayToDivide);
+        }
+        return arrayToDivide;
     }
 
     private void scal_tab(int[] tab1, int[] tab2, int[] scal_tab) {
