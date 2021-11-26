@@ -8,18 +8,19 @@ public class Main {
 
     public static void main(String[] args) {
         // seq
-        Calka_callable calka = new Calka_callable(0, Math.PI, 0.1);
+        Calka_callable calka = new Calka_callable(0, Math.PI, 0.01);
         var res1 = calka.compute();
 
         System.out.println(res1);
 
         // par
         double res = 0;
-        int div = 500;
+        double dx=0.01;
+
 
         double xp = 0;
         double xk = Math.PI;
-        double dx = (xk - xp) / div;
+        int div=(int) ((xk-xp)/dx);
 
         ExecutorService executor = Executors.newFixedThreadPool(NTHREADS);
         List<Future<Double>> list = new ArrayList<Future<Double>>();

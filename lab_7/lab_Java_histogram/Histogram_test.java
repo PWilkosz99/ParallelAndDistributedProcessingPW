@@ -5,7 +5,6 @@ class Histogram_test {
 	public static void main(String[] args) {
 
 		Scanner scanner = new Scanner(System.in);
-		int ps=5;
 
 		System.out.println("Set image size: n (#rows), m(#kolumns)");
 		int n = scanner.nextInt();
@@ -30,7 +29,6 @@ class Histogram_test {
 		for (int i = 0; i < obrazT1s.length; i++) {
 			(obrazT1s[i] = new ObrazT1(obraz_1, i)).start();
 		}
-		;
 
 		for (int i = 0; i < obrazT1s.length; i++) {
 			try {
@@ -76,7 +74,7 @@ class Histogram_test {
 		System.out.println("\n\t Wariant 3: \t\n ");
 
 		obraz_3.calculate_histogram();
-		//obraz_3.print_histogram();
+		// obraz_3.print_histogram();
 
 		ObrazT3[] obrazT3s = new ObrazT3[n];
 		Thread[] threadContainer2 = new Thread[n];
