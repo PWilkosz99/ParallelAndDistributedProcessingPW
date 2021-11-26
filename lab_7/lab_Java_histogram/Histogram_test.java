@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 class Histogram_test {
 
@@ -24,22 +26,17 @@ class Histogram_test {
 		// Variant 1 : extend Threads
 
 		int diffCharCount = 94;
+		int threadCount = 10;
 
-		ObrazT1[] obrazT1s = new ObrazT1[diffCharCount];
-		for (int i = 0; i < obrazT1s.length; i++) {
-			(obrazT1s[i] = new ObrazT1(obraz_1, i)).start();
+		ExecutorService executorService = Executors.newFixedThreadPool(threadCount);
+		for (int i = 0; i < diffCharCount; i++) {
+			executorService.execute(new ObrazT1(obraz_1, i));
 		}
 
-		for (int i = 0; i < obrazT1s.length; i++) {
-			try {
-				obrazT1s[i].join();
-			} catch (InterruptedException e) {
-			}
-		}
-
+		executorService.shutdown();
 		obraz_1.compareResults();
 
-		// Variant 2 : implements Runnable - block by char number
+		// Variant 2 : implements Runnable - by char number
 
 		System.out.println("\n\t Wariant 2: \t\n ");
 
@@ -48,48 +45,37 @@ class Histogram_test {
 		int p = 10;
 		int nt = (int) Math.ceil((float) diffCharCount / p);
 		int a, b;
-		ObrazT2[] obrazT2s = new ObrazT2[p];
+		// ObrazT2[] obrazT2s = new ObrazT2[p];
 		Thread[] threadContainer = new Thread[p];
 
-		for (int i = 0; i < obrazT2s.length; i++) {
+		ExecutorService executorService2 = Executors.newFixedThreadPool(threadCount);
+
+		for (int i = 0; i < p; i++) {
 			a = nt * i;
 			b = nt * (i + 1);
 			if (b > diffCharCount)
 				b = diffCharCount;
-			threadContainer[i] = (new Thread(new ObrazT2(obraz_2, a, b)));
-			threadContainer[i].start();
+			executorService2.execute(new ObrazT2(obraz_2, a, b));
 		}
 
-		for (int i = 0; i < obrazT2s.length; i++) {
-			try {
-				threadContainer[i].join();
-			} catch (InterruptedException e) {
-			}
-		}
+		executorService2.shutdown();
 
+		obraz_2.print_histogram();
 		obraz_2.compareResults();
 
-		// Variant 3 : implements Runnable - block by rows
+		// // Variant 3 : implements Runnable - block by rows
 
 		System.out.println("\n\t Wariant 3: \t\n ");
 
 		obraz_3.calculate_histogram();
 		// obraz_3.print_histogram();
 
-		ObrazT3[] obrazT3s = new ObrazT3[n];
-		Thread[] threadContainer2 = new Thread[n];
+		ExecutorService executorService3 = Executors.newFixedThreadPool(threadCount);
 
-		for (int i = 0; i < obrazT3s.length; i++) {
-			threadContainer2[i] = (new Thread(new ObrazT3(obraz_3, i)));
-			threadContainer2[i].start();
+		for (int i = 0; i < n; i++) {
+			executorService3.execute(new ObrazT3(obraz_3, i));
 		}
-
-		for (int i = 0; i < obrazT3s.length; i++) {
-			try {
-				threadContainer2[i].join();
-			} catch (InterruptedException e) {
-			}
-		}
+		executorService3.shutdown();
 
 		obraz_3.print_histogram();
 		obraz_3.compareResults();
