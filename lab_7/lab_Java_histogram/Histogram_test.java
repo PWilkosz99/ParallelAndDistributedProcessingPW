@@ -46,7 +46,7 @@ class Histogram_test {
 		int nt = (int) Math.ceil((float) diffCharCount / p);
 		int a, b;
 		// ObrazT2[] obrazT2s = new ObrazT2[p];
-		Thread[] threadContainer = new Thread[p];
+		//Thread[] threadContainer = new Thread[p];
 
 		ExecutorService executorService2 = Executors.newFixedThreadPool(threadCount);
 
