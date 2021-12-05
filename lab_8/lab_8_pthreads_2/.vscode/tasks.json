@@ -1,0 +1,60 @@
+{
+    "tasks": [
+        {
+            "label": "make",
+            "type": "shell",
+            "command": "make",
+            "problemMatcher": "$gcc",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "type": "cppbuild",
+            "label": "Debug",
+            "command": "/usr/bin/gcc",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "-DDEBUG",
+                "czyt_pis.o",
+                "-o",
+                "${fileDirname}/czyt_pis",
+                "czytelnia.o",
+                "-pthread",
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "detail": "Zadanie wygenerowane przez debuger.",
+            "dependsOn": "make",
+        },
+        {
+            "type": "cppbuild",
+            "label": "Relase",
+            "command": "/usr/bin/gcc",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-O3",
+                "czyt_pis.o",
+                "-o",
+                "${fileDirname}/czyt_pis",
+                "czytelnia.o",
+                "-pthread",
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "detail": "Zadanie wygenerowane przez debuger.",
+            "dependsOn": "make"
+        }
+    ],
+    "version": "2.0.0"
+}
