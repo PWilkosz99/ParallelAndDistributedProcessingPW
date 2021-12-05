@@ -15,6 +15,7 @@ public class Czytelnia {
         }
         liczba_czyt++;
         czytelnicy.signal();
+        zamek.unlock();
     }
 
     public void czytam() throws InterruptedException {

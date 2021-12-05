@@ -1,6 +1,6 @@
 public class TestCzytelnia {
     private final static int liczbaPisarzy = 5;
-    private final static int liczbaCzytelnikow = 5;
+    private final static int liczbaCzytelnikow = 15;
 
     public static void main(String[] args) throws InterruptedException {
         Czytelnia czytelnia = new Czytelnia();
@@ -9,12 +9,12 @@ public class TestCzytelnia {
         Runnable[] rCzytelnik = new Runnable[liczbaCzytelnikow];
         Thread[] threads = new Thread[l_watkow];
 
-        for (int index = 0; index < liczbaPisarzy; index++) {
-            rPisarz[index] = new Pisarz(czytelnia, index);
-        }
-
         for (int index = 0; index < liczbaCzytelnikow; index++) {
             rCzytelnik[index] = new Czytelnik(czytelnia, index);
+        }
+
+        for (int index = 0; index < liczbaPisarzy; index++) {
+            rPisarz[index] = new Pisarz(czytelnia, index);
         }
 
         for (int i = 0; i < liczbaPisarzy; i++) {
