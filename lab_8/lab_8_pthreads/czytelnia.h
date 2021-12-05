@@ -4,6 +4,8 @@
 /*** Definicje typow zmiennych ***/
 typedef struct {
   // <- zasoby czytelni
+  int liczba_czyt;
+  int liczba_pisz;
 } czytelnia_t;
 
 /*** Deklaracje procedur interfejsu ***/

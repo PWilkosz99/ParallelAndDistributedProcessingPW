@@ -8,7 +8,7 @@ public class Main {
     private static final Queue<String> queue = new LinkedList<>();
 
     public static void main(String[] args) {
-        int itemCount = 5;      
+        int itemCount = 50;      
         Thread producer = new Thread(() -> {
             for (int i = 0; i < itemCount; i++) {
                 try {
