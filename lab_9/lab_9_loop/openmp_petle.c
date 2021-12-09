@@ -32,20 +32,22 @@ int main()
 
   // podwójna pętla - docelowo równolegle
   double suma_parallel = 0.0;
-#pragma omp parallel for num_threads(4) default(none) ordered private(j) shared(a) reduction(+ \
-                                                                                             : suma_parallel) schedule(static, 2)
+  // #pragma omp parallel for num_threads(4) default(none) ordered private(j) shared(a) reduction(+ \
+//                                                                                              : suma_parallel) schedule(static, 2) //1
   for (i = 0; i < WYMIAR; i++)
   {
     int id_w = omp_get_thread_num();
-#pragma omp ordered
+//#pragma omp ordered
+#pragma omp parallel for num_threads(4) default(none) ordered shared(a) firstprivate(i, id_w) reduction(+ \
+                                                                                                        : suma_parallel) schedule(static)
     for (j = 0; j < WYMIAR; j++)
     {
       suma_parallel += a[i][j];
-      // #pragma omp ordered
+#pragma omp ordered
       // dla dekompozycji 1D
-      printf("(%1d,%1d)-W_%1d ", i, j, omp_get_thread_num());
+      // printf("(%1d,%1d)-W_%1d ", i, j, omp_get_thread_num());
       // dla dekompozycji 2D
-      // printf("(%1d,%1d)-W_%1d,%1d ",i,j,id_w,omp_get_thread_num());
+      printf("(%1d,%1d)-W_%1d,%1d ", i, j, id_w, omp_get_thread_num());
     }
 #pragma omp ordered
     printf("\n");
