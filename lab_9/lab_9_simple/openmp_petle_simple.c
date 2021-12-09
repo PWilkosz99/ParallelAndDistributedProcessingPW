@@ -28,7 +28,8 @@ int main()
 
   // pętla do modyfikacji - docelowo równoległa w OpenMP
   double suma_parallel = 0.0;
-#pragma omp parallel for default(none) ordered shared(a) reduction(+ : suma_parallel)
+#pragma omp parallel for num_threads(4) default(none) ordered shared(a) reduction(+ \
+                                                                                  : suma_parallel) schedule(dynamic)//schedule(dynamic, 2)// schedule(static)//schedule(static, 3)
   for (i = 0; i < WYMIAR; i++)
   {
     int id_w = omp_get_thread_num();
