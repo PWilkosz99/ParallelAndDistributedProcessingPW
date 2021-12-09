@@ -7,7 +7,8 @@
 
 int main()
 {
-  setenv("OMP_NUM_THREADS", "4", 1);
+  // setenv("OMP_NUM_THREADS", "4", 1);
+  // omp_set_num_threads(4);
   double a[WYMIAR];
   int n, i;
 
@@ -27,16 +28,13 @@ int main()
 
   // pętla do modyfikacji - docelowo równoległa w OpenMP
   double suma_parallel = 0.0;
-#pragma omp parallel default(none) shared(a, suma_parallel)
+#pragma omp parallel for default(none) ordered shared(a) reduction(+ : suma_parallel)
+  for (i = 0; i < WYMIAR; i++)
   {
-#pragma omp for ordered
-    for (i = 0; i < WYMIAR; i++)
-    {
-      int id_w = omp_get_thread_num();
-#pragma omp critical
-      suma_parallel += a[i];
-      // ...
+    int id_w = omp_get_thread_num();
+    suma_parallel += a[i];
 #pragma omp ordered
+    {
       printf("a[%2d]->W_%1d  \n", i, id_w);
     }
   }
