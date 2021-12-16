@@ -15,6 +15,7 @@ int main()
   int b_private = 2;
   int c_firstprivate = 3;
   int e_atomic = 5;
+  static int f_threadprivate;
 
   printf("przed wejsciem do obszaru rownoleglego -  nr_threads %d, thread ID %d\n", omp_get_num_threads(), omp_get_thread_num());
   printf("\ta_shared \t= %d\n", a_shared);
@@ -60,6 +61,9 @@ int main()
       printf("\te_atomic \t= %d\n", e_atomic);
     }
 
+#pragma omp threadprivate(f_threadprivate)
+    f_threadprivate = omp_get_thread_num();
+
     //#pragma omp single
     /* #pragma omp master */
     /*         { */
@@ -89,4 +93,12 @@ int main()
   printf("\tb_private \t= %d\n", b_private);
   printf("\tc_firstprivate \t= %d\n", c_firstprivate);
   printf("\te_atomic \t= %d\n", e_atomic);
+
+  printf("\n\n\n\n");
+
+#pragma omp parallel num_threads(5)
+  {
+#pragma omp threadprivate(f_threadprivate)
+    printf("\tthreadprivate = %d\n", f_threadprivate);
+  }
 }
