@@ -16,22 +16,24 @@ int main()
   int c_firstprivate = 3;
   int e_atomic = 5;
 
-  printf("przed wejsciem do obszaru rownoleglego -  nr_threads %d, thread ID %d\n",
-         omp_get_num_threads(), omp_get_thread_num());
+  printf("przed wejsciem do obszaru rownoleglego -  nr_threads %d, thread ID %d\n", omp_get_num_threads(), omp_get_thread_num());
   printf("\ta_shared \t= %d\n", a_shared);
   printf("\tb_private \t= %d\n", b_private);
   printf("\tc_firstprivate \t= %d\n", c_firstprivate);
   printf("\te_atomic \t= %d\n", e_atomic);
 
-#pragma omp parallel default(none) shared(a_shared, e_atomic) private(b_private) firstprivate(c_firstprivate)
+#pragma omp parallel default(none) shared(a_shared, e_atomic) private(b_private) firstprivate(c_firstprivate) num_threads(5)
   {
     int i;
     int d_local_private;
     d_local_private = a_shared + c_firstprivate;
-
-    for (i = 0; i < 10; i++)
+#pragma omp barrier
+#pragma omp critical
     {
-      a_shared++;
+      for (i = 0; i < 10; i++)
+      {
+        a_shared++;
+      }
     }
 
     for (i = 0; i < 10; i++)
@@ -41,8 +43,10 @@ int main()
 
     for (i = 0; i < 10; i++)
     {
+#pragma omp atomic
       e_atomic += omp_get_thread_num();
     }
+#pragma omp barrier
 #pragma omp critical
     {
 
@@ -59,9 +63,8 @@ int main()
     //#pragma omp single
     /* #pragma omp master */
     /*         { */
-
-    /*           printf("\ninside single: nr_threads %d, thread ID %d\n", */
-    /*     	     omp_get_num_threads(), omp_get_thread_num()); */
+    /*           printf("\ninside sSingle: nr_threads %d, thread ID %d\n", */
+    /*     	     omp_get_num_threads(), omp_get_SSthread_num()); */
     /*           /\* Get environment information *\/ */
     /*           int procs = omp_get_num_procs(); */
     /*           int nthreads = omp_get_num_threads(); */
