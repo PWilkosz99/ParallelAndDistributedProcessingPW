@@ -134,7 +134,7 @@ double bin_search_max(
 }
 
 /*** single task for parallel binary search (array not sorted) - openmp ***/
-#define max_level 4
+#define max_level 8
 
 double bin_search_max_task(
     double *A,
@@ -142,6 +142,40 @@ double bin_search_max_task(
     int r,
     int level)
 {
+  if (p < r)
+  {
+
+    int s = (p + r) / 2;
+
+    double a_max_1, a_max_2;
+
+#pragma omp task final(level > max_level) firstprivate(A, p, s) shared(a_max_1)
+    {
+      if (!omp_in_final())
+        a_max_1 = bin_search_max_task(A, p, s, level + 1);
+      else
+        a_max_1 = search_max(A, p, s);
+    }
+
+#pragma omp task final(level > max_level) firstprivate(A, r, s) shared(a_max_2)
+    {
+      if (!omp_in_final())
+        a_max_2 = bin_search_max_task(A, s + 1, r, level + 1);
+      else
+        a_max_2 = search_max(A, s + 1, r);
+    }
+
+#pragma omp taskwait
+
+    if (a_max_1 < a_max_2)
+      return (a_max_2);
+    else
+      return (a_max_1);
+  }
+  else
+  {
+    return (A[p]);
+  }
 }
 
 /********** parallel binary search (array not sorted) - openmp ***********/
