@@ -6,8 +6,6 @@
 
 #define HOSTNAME_MAX_LENGTH 5
 
-#define INSTANCES_SIZE 4
-
 #define DATASIZE 5
 
 struct package
@@ -80,7 +78,7 @@ int main(int argc, char **argv)
         i++;
       }
     }
-    else if (rank > 0 && rank < 3)
+    else if (rank > 0 && rank < 4)
     {
       position = 0;
       MPI_Recv(bufor, pack_size, MPI_PACKED, MPI_ANY_SOURCE, 0, MPI_COMM_WORLD, &status);
@@ -101,7 +99,8 @@ int main(int argc, char **argv)
       }
       else if (rank == 3)
       {
-        P_tmp.key = M_PI * P_tmp.key * P_tmp.key;
+        if(P_tmp.key != 410)
+          P_tmp.key = M_PI * P_tmp.key * P_tmp.key;
       }
       position = 0;
       MPI_Pack(&(P_tmp.id), 1, MPI_LONG, sendbufor, pack_size, &position, MPI_COMM_WORLD);

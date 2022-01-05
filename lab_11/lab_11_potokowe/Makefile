@@ -22,7 +22,7 @@ OPT = -g -DDEBUG
 all: MPI_simple run 
 
 run: MPI_simple
-	$(MPI_run) -np 4 MPI_simple
+	$(MPI_run) -np 5 MPI_simple
 
 # zaleznosci i komendy
 MPI_simple : MPI_simple.o
