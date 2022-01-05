@@ -8,6 +8,8 @@
 
 #define INSTANCES_SIZE 4
 
+#define DATASIZE 5
+
 struct package
 {
   long id;
@@ -30,13 +32,17 @@ int main(int argc, char **argv)
   struct package P[5];
   struct package P_tmp;
 
-  for (size_t i = 0; i < 5; i++)
+  for (size_t i = 0; i < DATASIZE; i++)
   {
     P[i].id = i * 1.0;
-    P[i].key = 420;
-    if (i == 4)
+    P[i].key = random;
+    if (i == DATASIZE - 1)
     {
       P[i].key = 410;
+    }
+    else
+    {
+      P[i].key = random() % 100;
     }
     for (size_t j = 0; j < 5; j++)
     {
@@ -63,7 +69,7 @@ int main(int argc, char **argv)
   {
     if (rank == 0)
     {
-      while (i < 5)
+      while (i < DATASIZE)
       {
         position = 0;
         MPI_Pack(&P[i].id, 1, MPI_LONG, bufor, pack_size, &position, MPI_COMM_WORLD);
@@ -82,8 +88,22 @@ int main(int argc, char **argv)
       MPI_Unpack(bufor, pack_size, &position, &(P_tmp.key), 1, MPI_UNSIGNED_SHORT, MPI_COMM_WORLD);
       MPI_Unpack(bufor, pack_size, &position, &(P_tmp.name), HOSTNAME_MAX_LENGTH, MPI_CHAR, MPI_COMM_WORLD);
       printf("Proces %d odebrał paczkę o id %ld i kluczu %d z nazwa %s od procesu %d\n", rank, P_tmp.id, P_tmp.key, P_tmp.name, status.MPI_SOURCE);
+      if (rank == 1)
+      {
+        for (size_t i = 0; i < 5; i++)
+        {
+          P_tmp.name[i] = tolower(P_tmp.name[i]);
+        }
+      }
+      else if (rank == 2)
+      {
+        P_tmp.name[0] = toupper(P_tmp.name[0]);
+      }
+      else if (rank == 3)
+      {
+        P_tmp.key = M_PI * P_tmp.key * P_tmp.key;
+      }
       position = 0;
-      // P_tmp.key += 10;
       MPI_Pack(&(P_tmp.id), 1, MPI_LONG, sendbufor, pack_size, &position, MPI_COMM_WORLD);
       MPI_Pack(&(P_tmp.key), 1, MPI_UNSIGNED_SHORT, sendbufor, pack_size, &position, MPI_COMM_WORLD);
       MPI_Pack(&(P_tmp.name), HOSTNAME_MAX_LENGTH, MPI_CHAR, sendbufor, pack_size, &position, MPI_COMM_WORLD);
@@ -96,11 +116,11 @@ int main(int argc, char **argv)
       MPI_Recv(bufor, pack_size, MPI_PACKED, rank - 1, 0, MPI_COMM_WORLD, &status);
       MPI_Unpack(bufor, pack_size, &position, &(P_tmp.id), 1, MPI_LONG, MPI_COMM_WORLD);
       MPI_Unpack(bufor, pack_size, &position, &(P_tmp.key), 1, MPI_UNSIGNED_SHORT, MPI_COMM_WORLD);
-      if (P_tmp.key < 415)
+      if (P_tmp.key < 411 & P_tmp.key > 409)
         printf("Otrzymano sygnal zakonczenia\n");
       MPI_Unpack(bufor, pack_size, &position, &(P_tmp.name), HOSTNAME_MAX_LENGTH, MPI_CHAR, MPI_COMM_WORLD);
       printf("Proces %d odebrał paczkę o id %ld i kluczu %d z nazwa %s od procesu %d\n", rank, P_tmp.id, P_tmp.key, P_tmp.name, status.MPI_SOURCE);
-      if (P_tmp.key < 415)
+      if (P_tmp.key < 411 & P_tmp.key > 409)
       {
         printf("Otrzymano sygnal zakonczenia");
         MPI_Abort(MPI_COMM_WORLD, 410);
