@@ -76,11 +76,11 @@ int main(int argc, char **argv)
         //     printf("SysPI = %20.15lf\n", M_PI);
         // }
         // else
-        if (rank != 0)
-        {
-            range = rank - 1;
+        // if (rank != 0)
+        // {
+            range = rank;
             // MPI_Recv(&range, 1, MPI_INT, 0, 0, MPI_COMM_WORLD, &status);
-            loopsize = ceil((float)precision / (float)(size - 1));
+            loopsize = ceil((float)precision / (float)(size));
             int starti = range * loopsize;
             int endi = (range + 1) * loopsize - 1;
             printf("ZAKRES petli %d - %d\n", starti, endi);
@@ -108,7 +108,7 @@ int main(int argc, char **argv)
             // MPI_Pack(&data.elem_minus, 1, MPI_DOUBLE, send_buff, pack_size, &position, MPI_COMM_WORLD);
             //printf("Wysyłanie wiadomości do 0 od %d\n", rank);
             // MPI_Send(send_buff, position, MPI_PACKED, 0, 0, MPI_COMM_WORLD);
-        }
+        //}
         MPI_Reduce(&elem_plus, &sum_plus, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
         MPI_Reduce(&elem_minus, &sum_minus, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
 
