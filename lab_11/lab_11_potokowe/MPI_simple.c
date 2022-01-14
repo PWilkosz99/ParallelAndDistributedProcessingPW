@@ -122,7 +122,7 @@ int main(int argc, char **argv)
       if (P_tmp.key < 411 & P_tmp.key > 409)
       {
         printf("Otrzymano sygnal zakonczenia");
-        MPI_Abort(MPI_COMM_WORLD, 410);
+        //MPI_Abort(MPI_COMM_WORLD, 410);
         break;
       }
     }

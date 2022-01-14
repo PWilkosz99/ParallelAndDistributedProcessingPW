@@ -51,7 +51,7 @@ int main(int argc, char **argv)
       {
         data += 5.0;
         MPI_Send(&data, 1, MPI_DOUBLE, 0, tag, MPI_COMM_WORLD);
-        printf("Proces %d wysłał liczbę %f do procesu %d\n", rank, data, rank + 1);
+        printf("Proces %d wysłał liczbę %f do procesu %d\n", rank, data, 0);
       }
     }
   }
