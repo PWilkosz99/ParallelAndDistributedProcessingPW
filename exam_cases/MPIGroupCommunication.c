@@ -28,9 +28,11 @@ int main(int argc, char **argv)
     printf("\n");
 
     //MPI_Gather(a, 1, MPI_INT, b, 1, MPI_INT, 2, MPI_COMM_WORLD);
+    //MPI_Allgather (a, 1, MPI_INT, b, 1, MPI_INT, MPI_COMM_WORLD);
     //MPI_Scatter(a, 1, MPI_INT, b, 1, MPI_INT, 1, MPI_COMM_WORLD);
     //MPI_Alltoall (a, 1, MPI_INT, b, 1, MPI_INT, MPI_COMM_WORLD);
-    MPI_Reduce (a, b, 1, MPI_INT, MPI_MAX, 1, MPI_COMM_WORLD);
+    //MPI_Reduce (a, b, 1, MPI_INT, MPI_MAX, 1, MPI_COMM_WORLD);
+    MPI_Allreduce (a, b, 1, MPI_INT, MPI_MIN, MPI_COMM_WORLD);
 
     printf("-----%d------\n", rank);
     for (size_t i = 0; i < elemCount; i++)
